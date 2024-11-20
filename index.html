@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 4 Solution Starter</title>
+    <script src="SpeakHello.js"></script>
+    <script src="SpeakGoodBye.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Module 4 Solution Starter</h1>
+
+    <!-- Input field and button to greet names -->
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <button id="greetButton">Greet</button>
+
+    <!-- Element to display the greeting message -->
+    <div id="greetingMessage" style="margin-top: 20px; font-size: 20px;"></div>
+
+    <script>
+        // Add event listener to the button
+        document.getElementById('greetButton').addEventListener('click', function() {
+            var nameInput = document.getElementById('nameInput').value; // Get the input name
+            var greetingMessage = document.getElementById('greetingMessage'); // Element to display the message
+
+            // Clear previous message
+            greetingMessage.innerHTML = '';
+
+            // If input is not empty, check and greet
+            if (nameInput) {
+                // Check the first letter of the input name
+                if (nameInput.charAt(0).toLowerCase() === 'j') {
+                    byeSpeaker.speak(nameInput); // Call goodbye function
+                    greetingMessage.innerHTML = "Goodbye " + nameInput; // Display the message
+                } else {
+                    helloSpeaker.speak(nameInput); // Call hello function
+                    greetingMessage.innerHTML = "Hello " + nameInput; // Display the message
+                }
+            } else {
+                greetingMessage.innerHTML = "Please enter a name."; // Display prompt if input is empty
+            }
+        });
+    </script>
+</body>
+</html>
